@@ -1,0 +1,79 @@
+int n=0;
+		Scanner s=new Scanner(System.in);
+		while(s.hasNext())
+		{
+			n=s.nextInt();
+			while(n>0)
+			{
+				System.out.print(n%10);
+				n=n/10;
+			}
+		}
+
+
+
+ String s=Integer.toString(255,16);//10进制数转0-35进制，结果为字符串
+       System.out.println("s="+s);
+       System.out.println(Integer.toString(666,36));//666(D)转换为36进制
+       int a=Integer.parseInt(s,16);//把字符串-当做多少进制-结果换转成10进制
+       System.out.println("a="+a);
+       BigInteger m=new BigInteger(s,16);//把16进制的字符串封装成大数对象
+       System.out.println("big integer m="+m); //打印大数 默认10进制
+
+
+import java.util.Scanner;
+
+
+public class thinkincode
+{
+
+	public static void main(String[] args)
+	{
+		int n=0;
+		Scanner s=new Scanner(System.in);
+		while(s.hasNext())
+		{
+			n=s.nextInt();
+			String ans="";
+			while(n>0)
+			{
+				ans=n%2+ans;
+				n=n/2;
+			}
+			System.out.println(ans);
+			//System.out.println(new StringBuilder(ans).reverse().toString());
+			
+		}
+	}
+
+}
+
+http://acm.hdu.edu.cn/showproblem.php?pid=2095   异或和Java快读
+public class hdu2095
+{
+	public static void main(String[] args)
+	{
+        int a,n,b;
+        StreamTokenizer in = new StreamTokenizer(new BufferedReader(new InputStreamReader(System.in)));
+	    try
+		{
+			while(in.nextToken()!=StreamTokenizer.TT_EOF)
+			{
+				a=0;
+				n=(int)in.nval;//nval默认返回到是double类型
+				if(n==0)break;
+				for(int i=0;i<n;i++)
+				{
+					in.nextToken();
+					b=(int)in.nval;
+					a^=b;//等价于 a=a^b a^b^a=(a^a)^b=0^b=b 题眼
+				}
+				System.out.println(a);
+			}
+		}
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
+}
